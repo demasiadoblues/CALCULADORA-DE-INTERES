@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Interés Compuesto Diario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Calculadora de Interés Compuesto Diario</h1>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label for="capital">💰 Capital Inicial ($)</label>
+                <input type="number" id="capital" value="100000" min="0" step="0.01">
+            </div>
+            
+            <div class="input-group">
+                <label for="tasa">📈 Tasa Nominal Anual (%)</label>
+                <input type="number" id="tasa" value="36" min="0" step="0.01">
+                <div class="small">Tasa diaria: <span id="tasaDiaria">0.0986%</span></div>
+            </div>
+            
+            <div class="input-group">
+                <label for="dias">📅 Días a Proyectar</label>
+                <input type="number" id="dias" value="30" min="1" max="365" step="1">
+            </div>
+            
+            <div class="input-group">
+                <label for="tipoCalculo">🔄 Tipo de Cálculo</label>
+                <select id="tipoCalculo">
+                    <option value="compuesto">Interés Compuesto (Reinversión)</option>
+                    <option value="simple">Interés Simple (Sin Reinversión)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="summary-cards">
+            <div class="card">
+                <h3>Capital Inicial</h3>
+                <p class="value" id="resumenCapital">$100,000</p>
+            </div>
+            <div class="card">
+                <h3>Capital Final</h3>
+                <p class="value" id="resumenFinal">$103,000</p>
+            </div>
+            <div class="card">
+                <h3>Ganancia Total</h3>
+                <p class="value" id="resumenGanancia">$3,000</p>
+            </div>
+            <div class="card">
+                <h3>Rentabilidad</h3>
+                <p class="value" id="resumenRentabilidad">3.00%</p>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <div class="table-header">
+                📋 Detalle Diario de la Inversión
+            </div>
+            <div class="table-scroll">
+                <table id="tablaCalculos">
+                    <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>Capital Inicial</th>
+                            <th>Interés Diario</th>
+                            <th>Capital Final</th>
+                            <th>Ganancia Acum.</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="export-btn" onclick="exportarCSV()">📊 Exportar CSV</button>
+            <button class="export-btn" onclick="exportarJSON()">💾 Exportar JSON</button>
+        </div>
+    </div>
+   <script src="scripts.js"></script> 
+</body>
+</html>
